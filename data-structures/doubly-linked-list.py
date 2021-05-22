@@ -21,9 +21,11 @@ class DoublyLinkedList:
         self.head = None
         self.tail = None
         self.size = 0
+        self.lookup_table = dict()
 
     def add_first(self, val):
         new_node = Node(val)
+        self.lookup_table[val] = new_node
 
         if self.head == None:
             self.head = self.tail = new_node
@@ -36,6 +38,7 @@ class DoublyLinkedList:
 
     def add_last(self, val):
         new_node = Node(val)
+        self.lookup_table[val] = new_node
 
         if self.head == None:
             self.head = self.tail = new_node
@@ -56,6 +59,7 @@ class DoublyLinkedList:
             self.add_last(val)
         else:
             new_node = Node(val)
+            self.lookup_table[val] = new_node
 
             curr_node = self.head
             for _ in range(ind - 1):
@@ -81,6 +85,9 @@ class DoublyLinkedList:
         if self.size == 0:
             self.head = self.tail = None
 
+        if curr_head.val in self.lookup_table:
+            del self.lookup_table[curr_head.val]
+
         return curr_head
 
     def remove_last(self):
@@ -94,6 +101,9 @@ class DoublyLinkedList:
         self.tail.next = None
 
         self.size -= 1
+
+        if curr_tail.val in self.lookup_table:
+            del self.lookup_table[curr_tail.val]
 
         return curr_tail
 
@@ -117,7 +127,30 @@ class DoublyLinkedList:
 
             self.size -= 1
 
+            if curr_node.val in self.lookup_table:
+                del self.lookup_table[curr_node.val]
+
             return curr_node
+
+    def remove_value(self, val):
+        if val not in self.lookup_table:
+            raise Exception("Invalid value.")
+
+        node_to_be_removed = self.lookup_table[val]
+
+        if node_to_be_removed == self.head:
+            return self.remove_first()
+        elif node_to_be_removed == self.tail:
+            return self.remove_last()
+        else:
+            node_to_be_removed.prev.next = node_to_be_removed.next
+            node_to_be_removed.next.prev = node_to_be_removed.prev
+
+            self.size -= 1
+
+            del self.lookup_table[node_to_be_removed.val]
+
+            return node_to_be_removed
 
     def __str__(self):
         string_rep = ""
@@ -152,7 +185,7 @@ def main():
     dll.add_at(4, 5)
     print(dll)
 
-    print(dll.remove_at(2))
+    print(dll.remove_first())
     print(dll)
 
     print(dll.remove_at(1))
@@ -164,7 +197,7 @@ def main():
     print(dll.remove_last())
     print(dll)
 
-    print(dll.remove_first())
+    print(dll.remove_value(4))
     print(dll)
 
 
