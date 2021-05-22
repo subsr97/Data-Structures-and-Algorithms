@@ -7,3 +7,4 @@ Python implementation for common Data Structures and Algorithms.
 2. [Queue](./data-structures/queue.py)
 3. [Singly Linked List](./data-structures/singly-linked-list.py)
 4. [Doubly Linked List](./data-structures/doubly-linked-list.py)
+5. [Hash Map](./data-structures/hash-map.py)
