@@ -19,3 +19,4 @@ Python implementation for common Data Structures and Algorithms.
 
 ### Algorithms
 1. [Bubble Sort](./algorithms/bubble-sort.py)
+2. [Merge Sort](./algorithms/merge-sort.py)
