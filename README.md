@@ -10,3 +10,4 @@ Python implementation for common Data Structures and Algorithms.
 5. [Hash Map](./data-structures/hash-map.py)
 6. [Binary Heap](./data-structures/binary-heap.py)
 7. [Binary Search Tree](./data-structures/binary-search-tree.py)
+8. [Union Find](./data-structures/union-find.py)
