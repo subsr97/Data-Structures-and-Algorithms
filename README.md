@@ -3,6 +3,9 @@
 Python implementation for common Data Structures and Algorithms.
 
 ## Index
+
+### Data Structures
+
 1. [Stack](./data-structures/stack.py)
 2. [Queue](./data-structures/queue.py)
 3. [Singly Linked List](./data-structures/singly-linked-list.py)
@@ -12,3 +15,7 @@ Python implementation for common Data Structures and Algorithms.
 7. [Binary Search Tree](./data-structures/binary-search-tree.py)
 8. [Union Find](./data-structures/union-find.py)
 9. [Trie](./data-structures/trie.py)
+
+
+### Algorithms
+1. [Bubble Sort](./algorithms/bubble-sort.py)
